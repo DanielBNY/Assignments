@@ -47,7 +47,9 @@ async def login(request):
 async def post_data(request):
     """
 
-    :param http request, request: The request data is encrypted with the sent token from the login part
+    :param http request, The web-server should accept input data to a route with a POST
+                         method and return a normalized version of it. ANd also returns if the session is authenticated
+                         with a token
     :return: json, normalized json decrypted
 
     """
