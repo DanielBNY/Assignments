@@ -46,10 +46,10 @@ async def login(request):
 @app.route("/", methods=["POST"])
 async def post_data(request):
     """
-
-    :param http request, The web-server should accept input data to a route with a POST
-                         method and return a normalized version of it. ANd also returns if the session is authenticated
-                         with a token
+    The web-server should accept input data to a route with a POST
+    method and return a normalized version of it. Also returns if the session is authenticated
+    with a token
+    :param http request
     :return: json, normalized json decrypted
 
     """
