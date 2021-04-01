@@ -57,8 +57,11 @@ async def post_data(request):
     strVal = request.json["strVal"]
     try:
         jwt_token = request.headers["authorization"]
-        jwt.decode(jwt_token, SECRET_KEY, algorithms=['HS256'])
-        return json({name: strVal, "isAuthorized": "true"})
+        decoded_payload = jwt.decode(jwt_token, SECRET_KEY, algorithms=['HS256'])
+        if decoded_payload["exp"] > datetime.datetime.utcnow():
+            return json({name: strVal, "isAuthorized": "true"})
+        else:
+            return json({name: strVal, "isAuthorized": "false"})
     except:
         return json({name: strVal, "isAuthorized": "false"})
 
