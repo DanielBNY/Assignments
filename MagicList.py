@@ -12,4 +12,5 @@ class WrappedList:
         return self._lst[item]
 
     def __setitem__(self, key, value):
+        self._lst.append(None)
         self._lst[key] = value
