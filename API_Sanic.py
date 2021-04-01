@@ -8,7 +8,7 @@ from sanic.response import text
 
 app = Sanic("API_Sanic")
 
-SECRET_KEY = os.urandom(24)
+SECRET_KEY = "0,2vabcdef$%ghijklmnopqrst1SzYxVSPHVq1MudRuvwx%yzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789vcg,"
 
 
 def encode_new_token(user_name):
@@ -41,6 +41,24 @@ async def login(request):
         auth_token = encode_new_token(user_name=user_name)
         return json({"token": auth_token})
     return text("401 Unauthorized", status=401)
+
+
+@app.route("/", methods=["POST"])
+async def post_data(request):
+    """
+
+    :param http request, request: The request data is encrypted with the sent token from the login part
+    :return: json, normalized json decrypted
+
+    """
+    name = request.json["name"]
+    strVal = request.json["strVal"]
+    try:
+        jwt_token = request.headers["authorization"]
+        jwt.decode(jwt_token, SECRET_KEY, algorithms=['HS256'])
+        return json({name: strVal, "isAuthorized": "true"})
+    except:
+        return json({name: strVal, "isAuthorized": "false"})
 
 
 if __name__ == '__main__':
