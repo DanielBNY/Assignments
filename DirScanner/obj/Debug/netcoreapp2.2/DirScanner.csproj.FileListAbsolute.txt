@@ -1,0 +1,10 @@
+C:\code\kela-interviews\Interviews\DirScanner\bin\Debug\netcoreapp2.2\DirScanner.deps.json
+C:\code\kela-interviews\Interviews\DirScanner\bin\Debug\netcoreapp2.2\DirScanner.runtimeconfig.json
+C:\code\kela-interviews\Interviews\DirScanner\bin\Debug\netcoreapp2.2\DirScanner.runtimeconfig.dev.json
+C:\code\kela-interviews\Interviews\DirScanner\bin\Debug\netcoreapp2.2\DirScanner.dll
+C:\code\kela-interviews\Interviews\DirScanner\bin\Debug\netcoreapp2.2\DirScanner.pdb
+C:\code\kela-interviews\Interviews\DirScanner\obj\Debug\netcoreapp2.2\DirScanner.csprojAssemblyReference.cache
+C:\code\kela-interviews\Interviews\DirScanner\obj\Debug\netcoreapp2.2\DirScanner.AssemblyInfoInputs.cache
+C:\code\kela-interviews\Interviews\DirScanner\obj\Debug\netcoreapp2.2\DirScanner.AssemblyInfo.cs
+C:\code\kela-interviews\Interviews\DirScanner\obj\Debug\netcoreapp2.2\DirScanner.dll
+C:\code\kela-interviews\Interviews\DirScanner\obj\Debug\netcoreapp2.2\DirScanner.pdb
