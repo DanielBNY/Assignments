@@ -1,17 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
+using System;
 namespace DirScanner
 {
     class Program
     {
         string PathToScan = @"C:\code\kela-interviews\Interviews\DirScanner\path_to_scan";
 
-        Pattern[] PatternsToMatch = new Pattern[] 
-        { 
+        Pattern[] PatternsToMatch = new Pattern[]
+        {
             new Pattern(PatternType.FileName, "doc1.txt"),
             new Pattern(PatternType.FileName, "doc3.txt"),
-            new Pattern(PatternType.FileExtension, "log")
+            new Pattern(PatternType.FileExtension, "log"),
+            new Pattern(PatternType.FileSize, "123")
         };
         public static bool IsMatchingPattern(FileInfo file, Pattern[] patterns)
         {
@@ -23,6 +25,10 @@ namespace DirScanner
                     isMatch = true;
                 }
                 else if (pattern.Type == PatternType.FileExtension && file.Extension == pattern.Value)
+                {
+                    isMatch = true;
+                }
+                else if (pattern.Type == PatternType.FileSize && file.Length == Convert.ToInt64(pattern.Value))
                 {
                     isMatch = true;
                 }
@@ -49,6 +55,7 @@ namespace DirScanner
             }
             return FilesList;
         }
+
         static void Main(string[] args)
         {
             
