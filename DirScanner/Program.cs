@@ -1,5 +1,6 @@
-﻿using System.IO;
-
+﻿using System.Collections.Generic;
+using System.IO;
+using Microsoft.VisualBasic.FileIO;
 namespace DirScanner
 {
     class Program
@@ -27,6 +28,26 @@ namespace DirScanner
                 }
             }
             return isMatch;
+        }
+        public static List<FileInfo> getAllFilesInDirectory(string directoryPath)
+        {
+            var directoriesInDir = Directory.GetDirectories(directoryPath);
+            List<FileInfo> FilesList = new List<FileInfo>();
+            var filesInCurrentDir = Directory.GetFiles(directoryPath);
+            foreach (string filePath in filesInCurrentDir)
+            {
+                var fileInfo = FileSystem.GetFileInfo(filePath)
+            }
+            FilesList.Add(fileInfo);
+            foreach (string dirPath in directoriesInDir)
+            {
+                var files = getAllFilesInDirectory(dirPath);
+                foreach (FileInfo file in files)
+                {
+                    FilesList.Add(file);
+                }
+            }
+            return FilesList;
         }
         static void Main(string[] args)
         {
