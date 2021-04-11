@@ -3,7 +3,8 @@
     public enum PatternType
     {
         FileName,
-        FileExtension
+        FileExtension,
+        FileSize
     }
 
     public class Pattern
